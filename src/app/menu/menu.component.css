@@ -1,0 +1,11 @@
+.navbar{
+    background: #bebebe;
+    height: 85px;
+}
+.navbar-brand{
+    color: white;
+}
+img{
+    width: 5%;
+    height: 65%;
+}
