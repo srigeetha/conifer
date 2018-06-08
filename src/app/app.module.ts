@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UIRouterModule } from '@uirouter/angular';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -22,9 +22,12 @@ import { MenuComponent } from './menu/menu.component';
         { name: "signup", url: "/signup", component: SignupComponent }
       ]
     }),
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [UIRouterModule]
 })
 export class AppModule { }
