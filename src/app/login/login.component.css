@@ -3,7 +3,9 @@
     padding-top: -55px;
     font-size: 13px;
   }
-  
+  .login100-form-btn[disabled]{
+    cursor: no-drop;
+  }
   
   a {
       font-family: Poppins-Regular;
@@ -215,7 +217,7 @@
     z-index: -1;
     width: 300%;
     height: 100%;
-    background: #a64bf4;
+    background: #27ae60;
     background: -webkit-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
     background: -o-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
     background: -moz-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);

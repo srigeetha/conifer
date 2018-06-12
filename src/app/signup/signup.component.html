@@ -1,42 +1,597 @@
 <!-- multistep form -->
 <div class="center">
-    
-<form id="msform">
-  <!-- progressbar -->
-  <ul id="progressbar">
-    <li style="color:#27ae60;" class="active">Personal Details</li>
-    <li style="color:#27ae60;">Business Profiles</li>
-    <li style="color:#27ae60;">PAyment Details</li>
-  </ul>
-  <!-- fieldsets -->
-  <fieldset>
-    <h2 class="fs-title">Create your account</h2>
-    <h3 class="fs-subtitle">This is step 1</h3>
-    <input type="text" name="email" placeholder="Email" />
-    <input type="password" name="pass" placeholder="Password" />
-    <input type="password" name="cpass" placeholder="Confirm Password" />
-    <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-  <fieldset>
-    <h2 class="fs-title">Social Profiles</h2>
-    <h3 class="fs-subtitle">Your presence on the social network</h3>
-    <input type="text" name="twitter" placeholder="Twitter" />
-    <input type="text" name="facebook" placeholder="Facebook" />
-    <input type="text" name="gplus" placeholder="Google Plus" />
-    <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-  <fieldset>
-    <h2 class="fs-title">Personal Details</h2>
-    <h3 class="fs-subtitle">We will never sell it</h3>
-    <input type="text" name="fname" placeholder="First Name" />
-    <input type="text" name="lname" placeholder="Last Name" />
-    <input type="text" name="phone" placeholder="Phone" />
-    <textarea name="address" placeholder="Address"></textarea>
-    <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input type="submit" name="submit" class="submit action-button" value="Submit" />
-  </fieldset>
-</form>
 
+  <form id="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+      <li style="color:#27ae60;" class="active">Personal Details</li>
+      <li style="color:#27ae60;">Business Profiles</li>
+      <li style="color:#27ae60;">PAyment Details</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
 
+      <h2 class="fs-title">Create your account</h2>
+      <br>
+      <table class="basic">
+        <tr>
+          <label style="font-weight: 700">Basic Information</label>
+        </tr>
+        <tr>
+          <td>
+            <div class="wrap-input100">
+              <label>FirstName*</label>
+              <input class="form-control" type="text" name="fname" id="fname" required minlength="3" maxlength="20"
+               [(ngModel)]="fname" #fnamectrl="ngModel">
+            </div>
+            <span class="err" *ngIf="fnamectrl.errors?.required && fnamectrl.touched">
+                Firstname is required
+              </span>
+            <span class="err" *ngIf="fnamectrl.errors?.minlength">
+                Min length 3 characters  
+            </span>
+            <span class="err" *ngIf="fnamectrl.errors?.maxlength">
+                Max length 10 characters  
+            </span>
+            <span class="err" *ngIf="fnamectrl.valid">
+
+            </span>
+          </td>
+          <td class="info">
+            <div class="wrap-input100">
+              <label>LastName*</label>
+              <input class="form-control" type="text" name="lname" id="lname" minlength="3" maxlength="20" required
+               [(ngModel)]="lname" #lnamectrl="ngModel">
+            </div>
+            <span class="err" *ngIf="lnamectrl.errors?.required && lnamectrl.touched">
+                Lastname is required
+              </span>
+            <span class="err" *ngIf="lnamectrl.errors?.minlength">
+                Min length 3 characters  
+            </span>
+            <span class="err" *ngIf="lnamectrl.errors?.maxlength">
+                Max length 10 characters  
+            </span>
+            <span class="err" *ngIf="lnamectrl.valid">
+
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="wrap-input100">
+              <label>CompanyName*</label>
+              <input class="form-control" type="text" name="companyname" id="companyname" required 
+              minlength="3" maxlength="20" [(ngModel)]="companyname" #companynamectrl="ngModel">
+            </div>
+            <span class="err" *ngIf="companynamectrl.errors?.required && companynamectrl.touched">
+                CompanyName is required
+              </span>
+            <span class="err" *ngIf="companynamectrl.errors?.minlength">
+                Min length 3 characters  
+            </span>
+            <span class="err" *ngIf="companynamectrl.errors?.maxlength">
+                Max length 10 characters  
+            </span>
+            <span class="err" *ngIf="companynamectrl.valid">
+
+            </span>
+          </td>
+          <td class="info">
+            <div class="wrap-input100">
+              <label>Mobile*</label>
+              <input class="form-control" type="text" name="mob" id="mob" required
+              pattern="^[0123456789]*$"  minlength="10" maxlength="10"
+               [(ngModel)]="mob" #mobctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="mobctrl.errors?.required && mobctrl.touched">
+                Phone Number is required
+            </span>
+            <span class="err" *ngIf="mobctrl.errors?.pattern">
+                Number contains digits
+              </span>
+            <span class="err" *ngIf="mobctrl.dirty && mobctrl.errors?.minlength">
+                Min length 10 digits  
+            </span>
+            <span class="err" *ngIf="mobctrl.dirty && mobctrl.errors?.maxlength">
+                Max length 10 digits  
+            </span>
+            <span class="err" *ngIf="mobctrl.valid">
+
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="wrap-input100">
+              <label>Email*</label>
+              <input class="form-control" type="text" name="email" id="email" 
+              required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                [(ngModel)]="email" #emailctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="emailctrl.errors?.required && emailctrl.touched">
+                Email is required
+              </span>
+              <span class="err" *ngIf="emailctrl.errors?.pattern">
+                Email is invalid
+              </span>
+              <span class="err" *ngIf="emailctrl.valid">
+        
+              </span>
+          </td>
+          <td class="info">
+            <div class="wrap-input100">
+              <label>Confirm Email*</label>
+              <input class="form-control" type="text" name="cemail" id="cemail" required validateEqual="email"
+              [(ngModel)]="cemail" #cemailctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="cemailctrl.errors?.required && cemailctrl.touched ">
+               Confirm Email is required
+              </span>
+              <span class="err" *ngIf="cemailctrl.touched && cemailctrl.errors?.pattern">
+                Doesnt matched with email
+              </span>
+              <span class="err" *ngIf="cemailctrl.valid">
+        
+              </span>
+          </td>
+        </tr>
+      </table>
+      
+      <table class="add">
+        <tr>
+          <td>
+            <label style="font-weight: 700">Address</label>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <div class="wrap-input100">
+              <label>Pincode*</label>
+              <input class="form-control input100" type="text" name="pin" id="pin" required   minlength="6" 
+              pattern="^[0123456789]*$" maxlength="6" [(ngModel)]="pin" #pinctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="pinctrl.errors?.required && pinctrl.touched">
+                Pin Number is required
+            </span>
+            <span class="err" *ngIf="pinctrl.errors?.pattern">
+                Pin Number contains only number
+              </span>
+            <span class="err" *ngIf="pinctrl.dirty && pinctrl.errors?.minlength">
+                Min length 6 digits  
+            </span>
+            <span class="err" *ngIf="pinctrl.valid">
+
+            </span>
+          </td>
+          <td>
+            <div class="wrap-input100">
+              <label>City*</label>
+              <input class="form-control input100" type="text" name="city" id="city" required 
+              [(ngModel)]="city" #cityctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="cityctrl.errors?.required && cityctrl.touched">
+               City is required
+            </span>
+          </td>
+          <td>
+            <div class="wrap-input100">
+              <label>State*</label>
+              <input class="form-control input100" type="text" name="state" id="state" required
+               [(ngModel)]="state" #statectrl="ngModel">
+            </div>
+            <span class="err" *ngIf="statectrl.errors?.required && statectrl.touched">
+                State is required
+             </span>
+          </td>
+
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="wrap-input100">
+              <label>Full Address*</label>
+              <input class="form-control input100" type="text" style="width:350px" name="fulladd" id="fulladd" 
+              required [(ngModel)]="fulladd"
+                #fulladdctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="fulladdctrl.errors?.required && fulladdctrl.touched">
+                Address is required
+             </span>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+    <fieldset>
+      <h2 class="fs-title">Business Profiles</h2>
+      <table class="basic">
+        <tr>
+          <label style="font-weight: 700">Company Information</label>
+        </tr>
+        <tr>
+          <td>
+            <div class="wrap-input100">
+              <label>CompanyName*</label>
+              <input class="form-control input100" type="text" name="companyname1" id="companyname1" minlength="3"
+              maxlength="50"  required [(ngModel)]="companyname1" #companyname1ctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="companyname1ctrl.errors?.required && companyname1ctrl.touched">
+                CompanyName is required
+              </span>
+            <span class="err" *ngIf="companyname1ctrl.errors?.minlength">
+                Min length 3 characters  
+            </span>
+            <span class="err" *ngIf="companyname1ctrl.errors?.maxlength">
+                Max length 50 characters  
+            </span>
+            <span class="err" *ngIf="companyname1ctrl.valid">
+
+            </span>
+          </td>
+          <td class="info">
+            <div class="wrap-input100">
+              <label>Business Type*</label>
+              <br>
+              <select class="selectpicker">
+                <option>Composition</option>
+                <option>Regular</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="wrap-input100">
+              <label>PAN*</label>
+              <input class="form-control input100" type="text" name="pan1" id="pan1"
+               required pattern="[A-Za-z]{5}\d{4}[A-Za-z]{1}" [(ngModel)]="pan1" #pan1ctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="pan1ctrl.errors?.required && pan1ctrl.touched">
+                PanNumber is required
+        </span>
+        <span class="err" *ngIf="pan1ctrl.errors?.pattern">
+            PanNumber is invalid
+        </span>   
+        <span class="err" *ngIf="pan1ctrl.valid">
+           
+        </span>
+          </td>
+          <td class="info">
+            <div class="wrap-input100">
+              <label>Email</label>
+              <input class="form-control input100" type="text" name="email1" id="email" 
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="email1" #email1ctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="email1ctrl.errors?.pattern">
+               Email is invalid
+            </span>  
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="wrap-input100">
+              <label>GSTIN*</label>
+              <input class="form-control input100" type="text" name="gstin" id="gstin" 
+              required pattern="^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$" [(ngModel)]="gstin" #gstinctrl="ngModel">
+            </div>
+          
+            <span class="err" *ngIf="gstinctrl.errors?.required && gstinctrl.touched">
+                    Gstin is required
+            </span>
+            <span class="err" *ngIf="gstinctrl.errors?.pattern">
+                Gstin is invalid
+            </span>   
+            <span class="err" *ngIf="gstinctrl.valid">
+               
+            </span>
+          </td>
+          <td class="info">
+            <div class="wrap-input100">
+              <label>GSTIN Count*</label>
+              <input class="form-control input100" type="number" name="count" id="count" 
+              required [(ngModel)]="count" #countctrl="ngModel" disabled>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table class="add">
+        <tr>
+          <td>
+            <label style="font-weight: 700">Contact Information</label>
+
+          </td>
+          <td>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                Same as Basic Info
+              </label>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="add">
+        <tr>
+          <td>
+            <div class="wrap-input100">
+              <label>Contact Person Name*</label>
+              <input class="form-control input100" type="text" name="person" id="person"
+               required [(ngModel)]="person" #personctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="personctrl.errors?.required && personctrl.touched">
+              Name required
+            </span>
+          </td>
+          <td>
+            <div>
+              <label>Country Code*</label>
+              <select class="selectpicker">
+                <option>+91</option>
+              </select>
+            </div>
+          </td>
+          <td>
+            <div class="wrap-input100">
+              <label>Mobile*</label>
+              <input class="form-control input100" type="text" name="mob1" id="mob1" required [(ngModel)]="mob1"
+              pattern="^[0123456789]*$"  minlength="10" maxlength="10" #mob1ctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="mob1ctrl.errors?.required && mob1ctrl.touched">
+                Phone Number is required
+            </span>
+            <span class="err" *ngIf="mob1ctrl.errors?.pattern">
+                 Number contains only digits
+              </span>
+            <span class="err" *ngIf="mob1ctrl.dirty && mob1ctrl.errors?.minlength">
+                Min length 10 digits  
+            </span>
+            <span class="err" *ngIf="mob1ctrl.dirty && mob1ctrl.errors?.maxlength">
+                Max length 10 digits  
+            </span>
+            <span class="err" *ngIf="mob1ctrl.valid">
+
+            </span>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table class="add">
+        <tr>
+          <td>
+            <label style="font-weight: 700">Contact Address</label>
+          </td>
+          <td>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                Same as basic Address
+              </label>
+            </div>
+          </td>
+
+        </tr>
+      </table>
+      <table class="add">
+        <tr>
+          <td colspan="2">
+            <div class="wrap-input100">
+              <label>Pincode*</label>
+              <input class="form-control input100" type="text" name="pin1" id="pin1" required   minlength="6" 
+              pattern="^[0123456789]*$" maxlength="6" [(ngModel)]="pin1" #pin1ctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="pin1ctrl.errors?.required && pin1ctrl.touched">
+                Pin Number is required
+            </span>
+            <span class="err" *ngIf="pin1ctrl.errors?.pattern">
+                Pin Number contains only number
+              </span>
+            <span class="err" *ngIf="pin1ctrl.dirty && pinctrl.errors?.minlength">
+                Min length 6 digits  
+            </span>
+            <span class="err" *ngIf="pin1ctrl.valid">
+
+            </span>
+          </td>
+          <td>
+            <div class="wrap-input100">
+              <label>City*</label>
+              <input class="form-control input100" type="text" name="city1" id="city1" 
+              required [(ngModel)]="city1" #city1ctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="city1ctrl.errors?.required && city1ctrl.touched">
+                City is required
+            </span>
+          </td>
+          <td>
+            <div class="wrap-input100">
+              <label>State*</label>
+              <input class="form-control input100" type="text" name="state1" id="state1" required
+               [(ngModel)]="state1" #state1ctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="state1ctrl.errors?.required && state1ctrl.touched">
+                State is required
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="wrap-input100">
+              <label>Full Address*</label>
+              <input class="form-control input100" type="text" style="width:350px" name="fulladd1" id="fulladd1" 
+              required [(ngModel)]="fulladd1"  #fulladd1ctrl="ngModel">
+            </div>
+            <span class="err" *ngIf="fulladd1ctrl.errors?.required && fulladd1ctrl.touched">
+                State is required
+            </span>
+          </td>
+        </tr>
+      </table>
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" name="next" class="next action-button" value="Next" />
+   </fieldset>
+    <fieldset>
+      <h2 class="fs-title">Preview</h2>
+      <table class="table table-bordered">
+        <tr>
+          <td colspan="2" class="table-active">
+            Personal Information
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Name
+          </td>
+          <td>
+              {{fname}}{{lname}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Company
+          </td>
+          <td>
+            {{companyname}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            PAN
+          </td>
+          <td>
+            {{pan1}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            USerName/Email
+          </td>
+          <td>
+            {{email}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Address
+          </td>
+          <td>
+            {{fulladd}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            City
+          </td>
+          <td>
+            {{city}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            State
+          </td>
+          <td>
+            {{state}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Pincode
+          </td>
+          <td>
+            {{pin}}
+          </td>
+        </tr>
+      </table>
+      <table class="table table-bordered">
+        <tr>
+          <td colspan="2" class="table-active">
+            Business Information
+          </td>
+        </tr>
+        <tr>
+          <td>
+            GSTIN
+          </td>
+          <td>
+           {{gstin}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Company
+          </td>
+          <td>
+            {{companyname1}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Business Type
+          </td>
+          <td>
+            {{fname}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Contact Person Name
+          </td>
+          <td>
+            {{person}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Contact Person Phone
+          </td>
+          <td>
+            {{mob1}}
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Address
+          </td>
+          <td>
+            {{fulladd1}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            City
+          </td>
+          <td>
+            {{city1}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            State
+          </td>
+          <td>
+            {{state1}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Pincode
+          </td>
+          <td>
+            {{pin1}}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button class="btn btn-success">Start a free trail</button>
+          </td>
+        </tr>
+      </table>
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+    </fieldset>
+  </form>
 </div>

@@ -1,20 +1,94 @@
 /*custom font*/
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
+.wrap-input100 {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+  }
+  .err{
+    color: red;
+    padding-top: -55px;
+    font-size: 11px;
+  }
+  /* .center{
+	  background-image: url("/assets/images/back.jpg");
+	  height: 100%;
+	  margin-top: -50px;
+  }
+  */
+  input {
+	outline: none;
+	border: none;
+}
+  .info{
+	padding-left: 65px;
+	padding-top:10px;
+  }
+
+.basic{
+	margin-left:25px; 
+}
+.basic input{
+	width: 240px;
+}
+.add td{
+	padding-left: 25px;
+	padding-top:10px;
+}
+.table{
+	padding-left: 25px;	
+}
+.btn-success{
+	margin-left: 40%;
+}
+
+  .input100 {
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: #555555;
+    display: block;
+    width: 100%;
+    background: transparent;
+    padding: 0 5px;
+  }
+  .form-control:focus {
+    border-color: white;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(243, 245, 247);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(251, 252, 253);
+}
+  .focus-input100 {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .focus-input100::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+  
+  }
+
+  
 
 #msform {
-	width: 400px;
+	width: 800px;
 	margin: 50px auto;
-	text-align: center;
 	position: relative;
 }
 #msform fieldset {
-	background: white;
-	border: 0 none;
-	border-radius: 3px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 	padding: 20px 30px;
-	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
 	
@@ -25,39 +99,24 @@
 #msform fieldset:not(:first-of-type) {
 	display: none;
 }
-/*inputs*/
-#msform input {
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	width: 70px;
-	box-sizing: border-box;
-	font-family: montserrat;
-	color: #2C3E50;
-	font-size: 13px;
-}
-/*buttons*/
+
 #msform .action-button {
 	width: 100px;
 	background: #27AE60;
 	font-weight: bold;
-	color: white;
+	color: white;	
 	border: 0 none;
-	border-radius: 1px;
+	border-radius: 20px 20px;
 	cursor: pointer;
-	padding: 10px 5px;
-	margin: 10px 5px;
+	margin-left: 70%;
 }
-#msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-}
-/*headings*/
+
 .fs-title {
 	font-size: 15px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
+	text-align: center;
 }
 .fs-subtitle {
 	font-weight: normal;
@@ -68,13 +127,14 @@
 /*progressbar*/
 #progressbar {
 	margin-bottom: 30px;
-	overflow: hidden;
+	overflow: auto;
 	/*CSS counters to number the steps*/
 	counter-reset: step;
+	text-align: center;
 }
 #progressbar li {
 	list-style-type: none;
-	color: white;
+	color: pink;
 	text-transform: uppercase;
 	font-size: 9px;
 	width: 33.33%;
@@ -89,7 +149,7 @@
 	display: block;
 	font-size: 10px;
 	color: #333;
-	background: white;
+	background: pink;
 	border-radius: 3px;
 	margin: 0 auto 5px auto;
 }
@@ -98,7 +158,7 @@
 	content: '';
 	width: 100%;
 	height: 2px;
-	background: white;
+	background: pink;
 	position: absolute;
 	left: -50%;
 	top: 9px;
@@ -112,7 +172,7 @@
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
 	background: #27AE60;
-	color: white;
+	color: pink;
 }
 
 

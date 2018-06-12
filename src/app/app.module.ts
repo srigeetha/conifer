@@ -6,14 +6,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { CustomValidator } from './signup/validatemail.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    MenuComponent
+    MenuComponent,
+    CustomValidator
   ],
   imports: [
     UIRouterModule.forRoot({
